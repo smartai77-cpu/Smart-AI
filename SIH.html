@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Jharkhand Yatra | Smart Tourism</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #071a16;
+    color: white;
+}
+
+/* NAVBAR */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(7,26,22,0.9);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid #24463c;
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: auto;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.logo-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg,#c9f26d,#38d996);
+    color: #071a16;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: #c8ddd5;
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    color: #c9f26d;
+}
+
+.btn {
+    padding: 12px 20px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.primary {
+    background: linear-gradient(135deg,#c9f26d,#38d996);
+    color: #071a16;
+}
+
+.secondary {
+    background: rgba(255,255,255,0.06);
+    color: white;
+    border: 1px solid #34554b;
+}
+
+/* COMMON */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 80px 0;
+}
+
+.kicker {
+    color: #38d996;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 40px;
+    margin-top: 8px;
+}
+
+p {
+    color: #a9c8bb;
+}
+
+/* HERO */
+.hero {
+    min-height: 90vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.badge {
+    display: inline-block;
+    padding: 9px 14px;
+    border-radius: 30px;
+    color: #c9f26d;
+    background: rgba(201,242,109,0.08);
+    border: 1px solid rgba(201,242,109,0.3);
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.hero h1 {
+    font-size: clamp(45px,6vw,75px);
+    line-height: 1;
+    margin: 20px 0;
+}
+
+.gradient {
+    background: linear-gradient(
+        90deg,
+        white,
+        #c9f26d,
+        #38d996
+    );
+
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero-text {
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 650px;
+}
+
+.actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.stats {
+    display: flex;
+    gap: 35px;
+    margin-top: 35px;
+}
+
+.stat h3 {
+    font-size: 28px;
+    color: #c9f26d;
+}
+
+.stat span {
+    color: #a9c8bb;
+    font-size: 13px;
+}
+
+/* HERO IMAGE */
+.hero-image {
+    height: 500px;
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+
+    background-image:
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,0.05),
+            rgba(0,0,0,0.85)
+        ),
+        url("img/netarhat.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-info {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    right: 25px;
+    padding: 22px;
+    background: rgba(7,26,22,0.75);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+}
+
+/* CARDS */
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 30px;
+}
+
+.section-heading p {
+    max-width: 500px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+
+.card {
+    background: linear-gradient(
+        145deg,
+        #14372d,
+        #0d251f
+    );
+
+    padding: 25px;
+    border-radius: 22px;
+    border: 1px solid #24463c;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+    border-color: #38d996;
+}
+
+.icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    background: rgba(56,217,150,0.12);
+    margin-bottom: 18px;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+}
+
+.tags {
+    display: flex;
+    gap: 7px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.tag {
+    background: rgba(255,255,255,0.07);
+    padding: 6px 9px;
+    border-radius: 20px;
+    font-size: 11px;
+}
+
+/* DESTINATIONS */
+.destinations {
+    grid-template-columns: repeat(4,1fr);
+}
+
+.destination {
+    min-height: 300px;
+    display: flex;
+    align-items: end;
+    position: relative;
+    overflow: hidden;
+
+    padding: 22px;
+
+    background-size: cover;
+    background-position: center;
+}
+
+.destination::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        transparent 20%,
+        rgba(0,0,0,0.9)
+    );
+
+    z-index: 1;
+}
+
+.destination-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* YOUR FOUR IMAGES */
+
+.netarhat {
+    background-image: url("img/netarhat.jpg");
+}
+
+.hundru {
+    background-image: url("img/hundru-falls.jpg");
+}
+
+.deoghar {
+    background-image: url("img/deoghar.jpg");
+}
+
+.tribal {
+    background-image: url("img/tribal-culture.jpg");
+}
+
+/* IMAGE HOVER */
+.destination {
+    background-size: cover;
+    transition: 0.5s;
+}
+
+.destination:hover {
+    background-size: 110%;
+}
+
+/* SOLUTION */
+.solution {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.panel {
+    padding: 30px;
+    background: #102820;
+    border-radius: 25px;
+    border: 1px solid #24463c;
+}
+
+.steps {
+    margin-top: 25px;
+}
+
+.step {
+    display: grid;
+    grid-template-columns: 45px 1fr;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.number {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(
+        135deg,
+        #c9f26d,
+        #38d996
+    );
+
+    color: #071a16;
+    font-weight: bold;
+}
+
+/* AI */
+.ai-panel {
+    background:
+    linear-gradient(
+        135deg,
+        rgba(56,217,150,0.16),
+        rgba(93,183,255,0.08)
+    );
+}
+
+.chat {
+    background: #071a16;
+    border: 1px solid #24463c;
+    padding: 15px;
+    border-radius: 18px;
+    margin-top: 20px;
+    height: 220px;
+    overflow-y: auto;
+}
+
+.message {
+    padding: 12px;
+    border-radius: 14px;
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+.bot {
+    background: #14372d;
+}
+
+.user {
+    background: #24543f;
+    text-align: right;
+}
+
+.input-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+input {
+    flex: 1;
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid #34554b;
+    background: #102820;
+    color: white;
+    outline: none;
+}
+
+/* IMPACT */
+.impact {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 18px;
+}
+
+.impact-card {
+    text-align: center;
+}
+
+.impact-card strong {
+    display: block;
+    font-size: 35px;
+    color: #c9f26d;
+}
+
+/* FOOTER */
+footer {
+    border-top: 1px solid #24463c;
+    padding: 35px 0;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* MOBILE */
+@media(max-width:900px) {
+
+    .hero,
+    .solution {
+        grid-template-columns: 1fr;
+    }
+
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .destinations {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .impact {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .nav-links {
+        display: none;
+    }
+}
+
+@media(max-width:600px) {
+
+    .grid,
+    .destinations,
+    .impact {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding-top: 50px;
+    }
+
+    .hero-image {
+        height: 380px;
+    }
+
+    .section-heading {
+        display: block;
+    }
+
+    h2 {
+        font-size: 32px;
+    }
+
+    .actions {
+        flex-direction: column;
+    }
+
+    .stats {
+        gap: 18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+
+<div class="navbar">
+
+<div class="logo">
+
+<div class="logo-icon">
+Jh
+</div>
+
+Jharkhand Yatra
+
+</div>
+
+<div class="nav-links">
+
+<a href="#discover">
+Discover
+</a>
+
+<a href="#solution">
+Solution
+</a>
+
+<a href="#ai">
+AI Guide
+</a>
+
+<a href="#impact">
+Impact
+</a>
+
+</div>
+
+<a href="#ai" class="btn primary">
+Plan My Trip ✦
+</a>
+
+</div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section>
+
+<div class="container hero">
+
+<div>
+
+<span class="badge">
+SMART INDIA HACKATHON 2026 · SH25032
+</span>
+
+<h1>
+
+Explore
+<span class="gradient">
+Jharkhand
+</span>
+
+<br>
+
+Beyond the Map.
+
+</h1>
+
+<p class="hero-text">
+
+A smart digital platform connecting travellers with
+hidden eco destinations, tribal culture, local communities
+and responsible experiences — all in one intelligent journey.
+
+</p>
+
+<div class="actions">
+
+<a href="#ai" class="btn primary">
+✨ Build My Journey
+</a>
+
+<a href="#discover" class="btn secondary">
+Explore Destinations →
+</a>
+
+</div>
+
+<div class="stats">
+
+<div class="stat">
+
+<h3>
+AI
+</h3>
+
+<span>
+Smart itinerary
+</span>
+
+</div>
+
+<div class="stat">
+
+<h3>
+AR
+</h3>
+
+<span>
+Culture discovery
+</span>
+
+</div>
+
+<div class="stat">
+
+<h3>
+360°
+</h3>
+
+<span>
+Local experience
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- NETARHAT IMAGE -->
+
+<div class="hero-image">
+
+<div class="hero-info">
+
+
+<small style="color:#c9f26d">
+    <img src="img/unnamed.jpg">
+              
+</small>
+
+<h2 style="font-size:25px">
+Sunrise, Forests & Local Stories
+</h2>
+
+<p>
+Discover nature-led routes, community guides
+and authentic cultural experiences.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FEATURES -->
+
+<section id="discover">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div>
+
+<div class="kicker">
+One platform. Many journeys.
+</div>
+
+<h2>
+Everything a traveller needs
+</h2>
+
+</div>
+
+<p>
+Turn scattered tourism information into one
+simple, personalized and sustainable travel experience.
+</p>
+
+</div>
+
+
+<div class="grid">
+
+<div class="card">
+
+<div class="icon">
+🧠
+</div>
+
+<h3>
+AI Travel Planner
+</h3>
+
+<p>
+Creates personalized day-wise itineraries
+based on interests, budget, time and weather.
+</p>
+
+<div class="tags">
+<span class="tag">AI</span>
+<span class="tag">Personalized</span>
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">
+🌿
+</div>
+
+<h3>
+Eco Tourism Hub
+</h3>
+
+<p>
+Discover waterfalls, forests, trails and
+low-impact activities.
+</p>
+
+<div class="tags">
+<span class="tag">Eco Score</span>
+<span class="tag">Nature</span>
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">
+🪘
+</div>
+
+<h3>
+Culture Connect
+</h3>
+
+<p>
+Explore tribal heritage, festivals, crafts,
+food and community experiences.
+</p>
+
+<div class="tags">
+<span class="tag">AR Stories</span>
+<span class="tag">Local Guides</span>
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">
+🗺️
+</div>
+
+<h3>
+Smart Route Map
+</h3>
+
+<p>
+Connect attractions, transport, safety
+information and routes.
+</p>
+
+<div class="tags">
+<span class="tag">Maps</span>
+<span class="tag">Offline</span>
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">
+🤝
+</div>
+
+<h3>
+Local Marketplace
+</h3>
+
+<p>
+Promote verified homestays, artisans,
+guides and local products.
+</p>
+
+<div class="tags">
+<span class="tag">Community</span>
+<span class="tag">Verified</span>
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">
+🛡️
+</div>
+
+<h3>
+Safe Travel Layer
+</h3>
+
+<p>
+Emergency contacts, alerts and
+location-aware assistance.
+</p>
+
+<div class="tags">
+<span class="tag">SOS</span>
+<span class="tag">Alerts</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- DESTINATIONS -->
+
+<section>
+
+<div class="container">
+
+<div class="section-heading">
+
+<div>
+
+<div class="kicker">
+Explore the state
+</div>
+
+<h2>
+Places Worth Discovering
+</h2>
+
+</div>
+
+</div>
+
+
+<div class="grid destinations">
+
+
+<!-- NETARHAT -->
+
+<div class="card destination netarhat">
+
+<div class="destination-content">
+<img src="img/unnamed.jpg">
+<h3>
+Netarhat
+</h3>
+
+<p>
+Sunrise · Forests · Slow Travel
+</p>
+
+</div>
+
+</div>
+
+
+<!-- HUNDRU FALLS -->
+
+<div class="card destination hundru">
+
+<div class="destination-content">
+<img src="img/download.jpg">
+<h3>
+Hundru Falls
+</h3>
+
+<p>
+Waterfall · Nature · Photography
+</p>
+
+</div>
+
+</div>
+
+
+<!-- DEOGHAR -->
+
+<div class="card destination deoghar">
+
+<div class="destination-content">
+<img src="img/images.jpg">
+<h3>
+Deoghar
+</h3>
+
+<p>
+Heritage · Culture · Food
+</p>
+
+</div>
+
+</div>
+
+
+<!-- TRIBAL CULTURE -->
+
+<div class="card destination tribal">
+
+<div class="destination-content">
+<img src="img/images (1).jpg">
+<h3>
+Tribal Culture
+</h3>
+
+<p>
+Crafts · Music · Stories
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SOLUTION -->
+
+<section id="solution">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div>
+
+<div class="kicker">
+Our solution
+</div>
+
+<h2>
+From Search to Meaningful Journey
+</h2>
+
+</div>
+
+</div>
+
+
+<div class="solution">
+
+<div class="panel">
+
+<div class="kicker">
+Traveller Flow
+</div>
+
+<div class="steps">
+
+
+<div class="step">
+
+<div class="number">
+01
+</div>
+
+<div>
+
+<h3>
+Tell us what you love
+</h3>
+
+<p>
+Nature, culture, adventure, food,
+spirituality or photography.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="step">
+
+<div class="number">
+02
+</div>
+
+<div>
+
+<h3>
+AI creates the route
+</h3>
+
+<p>
+Recommendations balance time,
+budget, distance and weather.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="step">
+
+<div class="number">
+03
+</div>
+
+<div>
+
+<h3>
+Experience locally
+</h3>
+
+<p>
+Connect with verified guides,
+homestays and local experiences.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="step">
+
+<div class="number">
+04
+</div>
+
+<div>
+
+<h3>
+Travel with impact
+</h3>
+
+<p>
+Track eco choices and support
+local communities.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- AI TRAVEL GUIDE -->
+
+<div class="panel ai-panel" id="ai">
+
+<div class="kicker">
+AI Travel Guide
+</div>
+
+<h2 style="font-size:28px">
+Where should I take you?
+</h2>
+
+<p style="margin-top:8px">
+Try the AI demo below.
+</p>
+
+
+<div class="chat" id="chat">
+
+<div class="message bot">
+
+👋 Namaste!
+
+<br><br>
+
+Tell me your travel style.
+
+<br><br>
+
+<b>
+"2 days, nature + culture, low budget"
+</b>
+
+</div>
+
+</div>
+
+
+<div class="input-row">
+
+<input
+id="prompt"
+placeholder="e.g. 3 days, waterfalls + tribal culture"
+>
+
+<button
+class="btn primary"
+onclick="planTrip()"
+>
+Plan
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- IMPACT -->
+
+<section id="impact">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div>
+
+<div class="kicker">
+Designed for measurable impact
+</div>
+
+<h2>
+Tourism That Gives Back
+</h2>
+
+</div>
+
+</div>
+
+
+<div class="impact">
+
+<div class="card impact-card">
+
+<strong>
++Local
+</strong>
+
+<p>
+Community businesses promoted
+</p>
+
+</div>
+
+
+<div class="card impact-card">
+
+<strong>
+Eco+
+</strong>
+
+<p>
+Responsible routes highlighted
+</p>
+
+</div>
+
+
+<div class="card impact-card">
+
+<strong>
+24/7
+</strong>
+
+<p>
+Digital travel assistance
+</p>
+
+</div>
+
+
+<div class="card impact-card">
+
+<strong>
+1 App
+</strong>
+
+<p>
+Discovery → Planning → Experience
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="container footer">
+
+<div>
+
+<b>
+JHARKHAND YATRA
+</b>
+
+<p>
+Smart Digital Platform for
+Eco & Cultural Tourism
+</p>
+
+</div>
+
+<div>
+
+Theme: Travel & Tourism
+<br>
+
+Problem Statement: SH25032
+<br>
+
+Smart India Hackathon 2026
+
+</div>
+
+</div>
+
+</footer>
+
+
+<script>
+
+function planTrip() {
+
+    const input =
+        document.getElementById("prompt");
+
+    const chat =
+        document.getElementById("chat");
+
+    const query =
+        input.value.trim();
+
+    if (!query) return;
+
+
+    const userMessage =
+        document.createElement("div");
+
+    userMessage.className =
+        "message user";
+
+    userMessage.innerText =
+        query;
+
+    chat.appendChild(userMessage);
+
+
+    let response =
+        "✨ Suggested route: Ranchi → Hundru Falls → local cultural experience → Netarhat. The AI system can optimize this based on time, budget, weather and interests.";
+
+
+    if (
+        query.toLowerCase().includes("culture") ||
+        query.toLowerCase().includes("tribal")
+    ) {
+
+        response =
+        "🪘 Culture-first route: Ranchi → Tribal cultural experience → local crafts & food → Deoghar heritage. Add verified community guides and AR stories.";
+
+    }
+
+
+    if (
+        query.toLowerCase().includes("nature") ||
+        query.toLowerCase().includes("waterfall")
+    ) {
+
+        response =
+        "🌿 Nature route: Ranchi → Hundru Falls → forest experience → Netarhat. The platform can rank destinations using eco-impact, travel time and crowd levels.";
+
+    }
+
+
+    if (
+        query.toLowerCase().includes("budget") ||
+        query.toLowerCase().includes("cheap")
+    ) {
+
+        response =
+        "💚 Budget-friendly route: nearby nature spots + shared transport + community homestays. The AI planner can compare costs and recommend the best-value itinerary.";
+
+    }
+
+
+    const botMessage =
+        document.createElement("div");
+
+    botMessage.className =
+        "message bot";
+
+    botMessage.innerText =
+        response;
+
+    chat.appendChild(botMessage);
+
+    input.value = "";
+
+    chat.scrollTop =
+        chat.scrollHeight;
+}
+
+
+document
+.getElementById("prompt")
+.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Enter") {
+            planTrip();
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
